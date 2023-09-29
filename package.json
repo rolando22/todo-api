@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "docker:stop": "docker compose stop && docker compose down",
-    "docker:start": "docker compose up -d",
+    "docker:start": "docker compose up",
     "start": "node src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

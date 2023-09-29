@@ -1,0 +1,25 @@
+###
+GET http://localhost:3004/api/todos
+
+###
+GET http://localhost:3004/api/todos/2
+
+###
+POST http://localhost:3004/api/todos
+Content-Type: application/json
+
+{
+    "text": "Desarrollar API"
+}
+
+###
+PATCH http://localhost:3004/api/todos/1
+Content-Type: application/json
+
+{
+    "text": "Desarrollar API",
+    "completed": true
+}
+
+###
+DELETE  http://localhost:3004/api/todos/1
