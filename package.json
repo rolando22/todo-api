@@ -5,8 +5,10 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "docker:stop": "docker compose stop && docker compose down",
-    "docker:start": "docker compose up",
+    "stop:docker": "docker compose stop && docker compose down",
+    "dev:docker": "docker compose -f docker-compose-dev.yml up",
+    "start:docker": "docker compose up",
+    "dev": "node --trace-warnings --watch src/index.js",
     "start": "node src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
