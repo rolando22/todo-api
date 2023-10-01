@@ -22,7 +22,8 @@ export class TodoController {
 
 	create = (req, res) => {
 		const { text } = req.body;
-		const newTodo = this.todoService.create({ text });
+		const { userId } = req;
+		const newTodo = this.todoService.create({ text }, userId);
 		res.status(201).json({
 			message: 'Todo created',
 			data: newTodo,
@@ -32,7 +33,8 @@ export class TodoController {
 	update = (req, res) => {
 		const id = parseInt(req.params.id);
 		const { text, completed } = req.body;
-		const updateTodo = this.todoService.update(id, { text, completed });
+		const { userId } = req;
+		const updateTodo = this.todoService.update(id, { text, completed }, userId);
 		if (!updateTodo) return res.status(404).json({ message: 'Todo not found' });
 		res.status(200).json({
 			message: 'Todo updated',
@@ -42,7 +44,8 @@ export class TodoController {
 
 	delete = (req, res) => {
 		const id = parseInt(req.params.id);
-		const deleteTodo = this.todoService.delete(id);
+		const { userId } = req;
+		const deleteTodo = this.todoService.delete(id, userId);
 		if (!deleteTodo) return res.status(404).json({ message: 'Todo not found' });
 		res.status(200).json({
 			message: 'Todo delete',
