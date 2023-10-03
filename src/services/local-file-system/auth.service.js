@@ -5,7 +5,7 @@ import { users } from '../../mocks/users.js';
 export class AuthService {
 
 	static login({ email, password }) {
-		const user = users.find(user => user.email === email);
+		const user = structuredClone(users).find(user => user.email === email);
 		const passwordCorrect = user === undefined ? false : user.password === password;
 		if (!(user && passwordCorrect)) return null;
 		const userForToken = {

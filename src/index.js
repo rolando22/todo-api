@@ -1,4 +1,5 @@
 import express from 'express';
+import cors from 'cors';
 import { TodoService } from './services/local-file-system/todos.service.js';
 import { AuthService } from './services/local-file-system/auth.service.js';
 import { createTodoRouter } from './routes/todos.routes.js';
@@ -9,6 +10,7 @@ const PORT = process.env.PORT || 3004;
 const app = express();
 
 app.use(express.json());
+app.use(cors());
 
 app.use('/api/todos', createTodoRouter({ todoService: TodoService }));
 app.use('/api/auth', createAuthRouter({ authService: AuthService }));
