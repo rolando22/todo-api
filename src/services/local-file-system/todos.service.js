@@ -6,14 +6,15 @@ export class TodoService {
 		return todos;
 	}
 
-	static getById(id) {
+	static getById({ id }) {
 		const todo = todos.find(todo => todo.id === id);
 		return todo;
 	}
 
-	static create(data, userId) {
+	static create({ data, userId }) {
 		const newTodo = {
 			id: Math.max(...todos.map(todo => todo.id)) + 1,
+			text: '',
 			completed: false,
 			...data,
 			userId,
@@ -22,7 +23,7 @@ export class TodoService {
 		return newTodo;
 	}
 
-	static update(id, data, userId) {
+	static update({ id, data, userId }) {
 		const todoIndex = todos.findIndex(todo => todo.id === id && todo.userId === userId);
 		if (todoIndex === -1) return null;
 		const updateTodo = {
@@ -33,7 +34,7 @@ export class TodoService {
 		return updateTodo;
 	}
 
-	static delete(id, userId) {
+	static delete({ id, userId }) {
 		const todoIndex = todos.findIndex(todo => todo.id === id && todo.userId === userId);
 		if (todoIndex === -1) return null;
 		const [deleteTodo] = todos.splice(todoIndex, 1);

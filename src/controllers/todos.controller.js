@@ -1,10 +1,12 @@
+import { validatePartialTodo } from '../schemas/todo.js';
+
 export class TodoController {
 
 	constructor({ todoService }) {
 		this.todoService = todoService;
 	}
 
-	getAll = (req, res) => {
+	getAll = (_req, res) => {
 		const todos = this.todoService.getAll();
 		res.status(200).json({
 			data: todos,
@@ -13,7 +15,7 @@ export class TodoController {
 
 	getById = (req, res) => {
 		const id = parseInt(req.params.id);
-		const todo = this.todoService.getById(id);
+		const todo = this.todoService.getById({ id });
 		if (!todo) return res.status(404).json({ message: 'Todo not found' });
 		res.status(200).json({
 			data: todo,
@@ -21,9 +23,10 @@ export class TodoController {
 	};
 
 	create = (req, res) => {
-		const { text } = req.body;
+		const result = validatePartialTodo(req.body);
+		if (result.error) return res.status(400).json({ message: JSON.parse(result.error.message) });
 		const { userId } = req;
-		const newTodo = this.todoService.create({ text }, userId);
+		const newTodo = this.todoService.create({ data: result.data, userId });
 		res.status(201).json({
 			message: 'Todo created',
 			data: newTodo,
@@ -31,10 +34,11 @@ export class TodoController {
 	};
 
 	update = (req, res) => {
+		const result = validatePartialTodo(req.body);
+		if (result.error) return res.status(400).json({ message: JSON.parse(result.error.message) });
 		const id = parseInt(req.params.id);
-		const { text, completed } = req.body;
 		const { userId } = req;
-		const updateTodo = this.todoService.update(id, { text, completed }, userId);
+		const updateTodo = this.todoService.update({ id, data: result.data, userId});
 		if (!updateTodo) return res.status(404).json({ message: 'Todo not found' });
 		res.status(200).json({
 			message: 'Todo updated',
@@ -45,10 +49,10 @@ export class TodoController {
 	delete = (req, res) => {
 		const id = parseInt(req.params.id);
 		const { userId } = req;
-		const deleteTodo = this.todoService.delete(id, userId);
+		const deleteTodo = this.todoService.delete({ id, userId });
 		if (!deleteTodo) return res.status(404).json({ message: 'Todo not found' });
 		res.status(200).json({
-			message: 'Todo delete',
+			message: 'Todo deleted',
 			data: deleteTodo,
 		});
 	};

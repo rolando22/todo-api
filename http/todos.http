@@ -7,22 +7,22 @@ GET http://localhost:3004/api/todos/31
 ###
 POST http://localhost:3004/api/todos
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhdHVueTAiLCJpYXQiOjE2OTYxNjkxNjcsImV4cCI6MTY5NjI1NTU2N30.aff30rXexxbfMEsH_ulW6Sc3rFBupkKPg_1g3wk8Wwg
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhdHVueTAiLCJpYXQiOjE2OTY2MTQzMzQsImV4cCI6MTc4MzAxNDMzNH0.WbZpB-fwXgPfO1PCWVt2G6QKSbYmYO1_eZeIJa7gWdY
 
 {
     "text": "Desarrollar API"
 }
 
 ###
-PATCH http://localhost:3004/api/todos/30
+PATCH http://localhost:3004/api/todos/31
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhdHVueTAiLCJpYXQiOjE2OTYxNjkxNjcsImV4cCI6MTY5NjI1NTU2N30.aff30rXexxbfMEsH_ulW6Sc3rFBupkKPg_1g3wk8Wwg
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhdHVueTAiLCJpYXQiOjE2OTY2MTQzMzQsImV4cCI6MTc4MzAxNDMzNH0.WbZpB-fwXgPfO1PCWVt2G6QKSbYmYO1_eZeIJa7gWdY
 
 {
-    "text": "Desarrollar API",
+    "text": "API Terminada",
     "completed": true
 }
 
 ###
-DELETE  http://localhost:3004/api/todos/2
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhdHVueTAiLCJpYXQiOjE2OTYxNjkxNjcsImV4cCI6MTY5NjI1NTU2N30.aff30rXexxbfMEsH_ulW6Sc3rFBupkKPg_1g3wk8Wwg
+DELETE  http://localhost:3004/api/todos/31
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhdHVueTAiLCJpYXQiOjE2OTY2MTQzMzQsImV4cCI6MTc4MzAxNDMzNH0.WbZpB-fwXgPfO1PCWVt2G6QKSbYmYO1_eZeIJa7gWdY
