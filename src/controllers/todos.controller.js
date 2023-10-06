@@ -24,7 +24,7 @@ export class TodoController {
 
 	create = (req, res) => {
 		const result = validatePartialTodo(req.body);
-		if (result.error) return res.status(400).json({ message: JSON.parse(result.error.message) });
+		if (result.error) return res.status(400).json({ error: JSON.parse(result.error.message) });
 		const { userId } = req;
 		const newTodo = this.todoService.create({ data: result.data, userId });
 		res.status(201).json({
@@ -35,7 +35,7 @@ export class TodoController {
 
 	update = (req, res) => {
 		const result = validatePartialTodo(req.body);
-		if (result.error) return res.status(400).json({ message: JSON.parse(result.error.message) });
+		if (result.error) return res.status(400).json({ error: JSON.parse(result.error.message) });
 		const id = parseInt(req.params.id);
 		const { userId } = req;
 		const updateTodo = this.todoService.update({ id, data: result.data, userId});
