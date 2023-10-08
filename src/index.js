@@ -7,6 +7,7 @@ import { createTodoRouter } from './routes/todos.routes.js';
 import { createUserRouter } from './routes/users.routes.js';
 import { createAuthRouter } from './routes/auth.routes.js';
 import { notFound } from './middlewares/notFound.js';
+import { handlerError } from './middlewares/handlerError.js';
 
 const PORT = process.env.PORT || 3004;
 
@@ -20,6 +21,8 @@ app.use('/api/todos', createTodoRouter({ todoService: TodoService }));
 app.use('/api/users', createUserRouter({ usersService: UsersService }));
 app.use('/api/auth', createAuthRouter({ authService: AuthService }));
 app.use(notFound);
+
+app.use(handlerError);
 
 app.listen(PORT, () => {
 	console.log(`Server listening at: http://localhost:${PORT}`);

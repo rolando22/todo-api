@@ -8,9 +8,7 @@ export const authentication = (req, res, next) => {
 		token = authorization.split(' ')[1];
 	}
 	const decodedToken = jwt.verify(token, config.jwtSecret);
-	if (!token || !decodedToken.id) {
-		return res.status(401).json({ error: 'token missing or invalid' });
-	}
+
 	const { id: userId } = decodedToken;
 	req.userId = userId;
 	next();
