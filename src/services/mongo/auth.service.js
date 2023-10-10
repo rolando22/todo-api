@@ -14,7 +14,7 @@ export class AuthService {
 		};
 		const token = jwt.sign(userForToken, config.jwtSecret, { expiresIn: 1000 * 60 * 60 * 24 });
 		return {
-			user,
+			user: user.toJSON(),
 			token,
 		};
 	}

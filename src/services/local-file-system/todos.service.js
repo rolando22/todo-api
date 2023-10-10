@@ -13,7 +13,7 @@ export class TodoService {
 
 	static create({ data, userId }) {
 		const newTodo = {
-			id: Math.max(...todos.map(todo => todo.id)) + 1,
+			id: (Math.max(...todos.map(todo => todo.id)) + 1).toString(),
 			text: '',
 			completed: false,
 			...data,

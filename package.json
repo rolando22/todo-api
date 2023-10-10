@@ -6,10 +6,13 @@
   "type": "module",
   "scripts": {
     "stop:docker": "docker compose stop && docker compose down",
-    "dev:docker": "docker compose -f docker-compose-dev.yml up",
+    "dev:mongo:docker": "docker compose -f docker-compose-dev-mongo.yml up",
+    "dev:local:docker": "docker compose -f docker-compose-dev-local.yml up",
     "start:docker": "docker compose up",
-    "dev": "node --trace-warnings --watch src/index.js",
-    "start": "node src/index.js",
+    "dev:mongo": "node --trace-warnings --watch src/server-with-mongo.js",
+    "dev:local": "node --trace-warnings --watch src/server-with-local.js",
+    "start:local": "node src/server-with-local.js",
+    "start": "node src/server-with-mongo.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

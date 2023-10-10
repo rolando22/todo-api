@@ -1,6 +1,6 @@
 export const users = [
 	{
-		id: 1,
+		id: '1',
 		firstName: 'Terry',
 		lastName: 'Medhurst',
 		email: 'atuny0@sohu.com',
@@ -9,7 +9,7 @@ export const users = [
 		image: 'https://robohash.org/hicveldicta.png',
 	},
 	{
-		id: 2,
+		id: '2',
 		firstName: 'Sheldon',
 		lastName: 'Quigley',
 		email: 'hbingley1@plala.or.jp',
@@ -18,7 +18,7 @@ export const users = [
 		image: 'https://robohash.org/doloremquesintcorrupti.png',
 	},
 	{
-		id: 3,
+		id: '3',
 		firstName: 'Terrill',
 		lastName: 'Hills',
 		email: 'rshawe2@51.la',

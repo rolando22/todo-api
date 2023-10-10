@@ -13,7 +13,7 @@ export class AuthController {
 			const { user, token } = await this.authService.login({ email: result.data.email, password: result.data.password });
 			if (!user) return res.status(401).json({ error: 'invalid user or password' });
 			res.json({ 
-				data: { ...user.toJSON(), token }, 
+				data: { ...user, token }, 
 			});
 		} catch (error) {
 			next(error);

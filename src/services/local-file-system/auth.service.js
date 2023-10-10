@@ -15,7 +15,7 @@ export class AuthService {
 		const token = jwt.sign(userForToken, config.jwtSecret, { expiresIn: 1000 * 60 * 60 * 24 });
 		delete user.password;
 		return {
-			...user,
+			user,
 			token,
 		};
 	}
